@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmallProject.Domain
 {
@@ -39,6 +40,13 @@ namespace SmallProject.Domain
         /// <summary>
         /// Relation to the user who asked for an offer
         /// </summary>
-        public Guid? UserId { get; set; }
+        [Required]
+        public Guid UserId { get; set; }
+
+        /// <summary>
+        /// Object of the related user
+        /// </summary>
+        [ForeignKey("User")]
+        public User User { get; set; }
     }
 }

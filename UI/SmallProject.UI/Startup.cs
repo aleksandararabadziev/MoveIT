@@ -27,8 +27,6 @@ namespace SmallProject.UI
             services.AddSingleton(AutoMapperConfiguration.Initialize());
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            //AuthenticationProvider.ConfigureUIAuthentication(services, tenants, schemas);
-
             services.AddControllersWithViews();
 
             services.AddSpaStaticFiles(configuration =>

@@ -21,6 +21,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAppSettings();
+    this.ping();
+  }
+
+  ping(){
+    this._appService.getPing().subscribe(result=>{
+      console.log(result);
+    })
   }
 
   getAppSettings() {

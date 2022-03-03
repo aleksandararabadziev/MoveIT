@@ -15,7 +15,8 @@ export class Repository {
 
     getHeader() {
         var headers = new HttpHeaders({
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'user' : 'username1'
         });
 
         return headers;

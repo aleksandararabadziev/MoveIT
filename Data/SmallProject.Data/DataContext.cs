@@ -14,6 +14,7 @@ namespace SmallProject.Data
         {
         }
 
+        public DbSet<User> Users { get; set; }
         public DbSet<DistancePrice> DistancePrices { get; set; }
         public DbSet<VolumePrice> VolumePrices { get; set; }
 
@@ -21,6 +22,7 @@ namespace SmallProject.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>().ToTable("Users", "dbo");
             modelBuilder.Entity<DistancePrice>().ToTable("DistancePrices", "dbo");
             modelBuilder.Entity<VolumePrice>().ToTable("VolumePrices", "dbo");
             modelBuilder.Entity<Offer>().ToTable("Offers", "dbo");

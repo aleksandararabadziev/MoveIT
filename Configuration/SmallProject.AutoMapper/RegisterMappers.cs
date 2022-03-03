@@ -10,6 +10,7 @@ namespace SmallProject.AutoMapper
         public RegisterMappers()
         {
             CreateMap<AppSettings, AppSettingsModel>();
+            CreateMap<User, UserModel>().ForMember(x => x.FullName, o => o.MapFrom(x => x.FirstName + " " + x.LastName));
             CreateMap<DistancePrice, DistancePriceModel>().ReverseMap();
             CreateMap<VolumePrice, VolumePriceModel>().ReverseMap();
         }

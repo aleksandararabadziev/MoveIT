@@ -32,18 +32,6 @@ namespace SmallProject.API
             services.AddSingleton(AutoMapperConfiguration.Initialize());
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            //AuthenticationProvider.ConfigureAPIAuthentication(services, tenants, schemas);
-
-            //services.AddAuthorization(options =>
-            //{
-            //    string[] schemes = schemas.Select(x => x.Name).ToArray();
-
-            //    options.DefaultPolicy = new AuthorizationPolicyBuilder()
-            //                    .RequireAuthenticatedUser()
-            //                    .AddAuthenticationSchemes(schemes)
-            //                    .Build();
-            //});
-
             RegisterDependencies(services, DependenciesRegistration.DependenciesRegistration.Services());
             RegisterDependencies(services, DependenciesRegistration.DependenciesRegistration.Data());
 
