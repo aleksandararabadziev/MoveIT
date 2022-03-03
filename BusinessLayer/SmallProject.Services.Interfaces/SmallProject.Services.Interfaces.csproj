@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Configuration\SmallProject.Settings\SmallProject.Settings.csproj" />
+    <ProjectReference Include="..\..\Domain\SmallProject.Domain\SmallProject.Domain.csproj" />
+    <ProjectReference Include="..\..\Models\SmallProject.Models\SmallProject.Models.csproj" />
+  </ItemGroup>
+
+</Project>

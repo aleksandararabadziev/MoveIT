@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Configuration\SmallProject.AutoMapper\SmallProject.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\Data\SmallProject.Data\SmallProject.Data.csproj" />
+    <ProjectReference Include="..\..\Domain\SmallProject.Domain\SmallProject.Domain.csproj" />
+    <ProjectReference Include="..\SmallProject.Services.Interfaces\SmallProject.Services.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

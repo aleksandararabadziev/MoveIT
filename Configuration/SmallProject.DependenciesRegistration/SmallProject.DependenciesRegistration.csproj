@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLayer\SmallProject.Services.Interfaces\SmallProject.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\..\BusinessLayer\SmallProject.Services\SmallProject.Services.csproj" />
+    <ProjectReference Include="..\..\Data\SmallProject.Data\SmallProject.Data.csproj" />
+  </ItemGroup>
+
+</Project>
