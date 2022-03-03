@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SmallProject.Authorization;
 using SmallProject.Models;
 using SmallProject.Services.Interfaces;
 using System;
@@ -39,6 +41,7 @@ namespace SmallProject.API.Controllers
             return Json(true);
         }
 
+        [TypeFilter(typeof(OfferAuthorizationAttribute))]
         [HttpGet]
         public JsonResult GetOfferById(Guid offerId)
         {

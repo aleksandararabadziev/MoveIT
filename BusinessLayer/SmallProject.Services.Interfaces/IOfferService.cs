@@ -27,5 +27,13 @@ namespace SmallProject.Services.Interfaces
         /// <param name="offerId"></param>
         /// <returns></returns>
         DetailsOfferModel GetOfferById(Guid offerId);
+
+        /// <summary>
+        /// Check if the user can access the details of an offer
+        /// </summary>
+        /// <param name="offerId"></param>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        bool CheckUserAccessInOffer(Guid offerId, string username);
     }
 }

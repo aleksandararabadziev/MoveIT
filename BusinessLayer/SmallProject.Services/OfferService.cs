@@ -88,6 +88,23 @@ namespace SmallProject.Services
             return offer.ToModel<DetailsOfferModel, Offer>();
         }
 
+        public bool CheckUserAccessInOffer(Guid offerId, string username)
+        {
+            var user = _userRepository.Query().FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
+
+            if (user == null)
+                throw new Exception("The user does not exist!");
+
+            var offer = _offerRepository.GetById(offerId);
+            if (offer == null)
+                throw new Exception("The offer does not exist!");
+
+            if (offer.UserId == user.Id)
+                return true;
+
+            return false;
+        }
+
         private int CalculatePrice(CreateOfferModel model)
         {
             var totalPrice = 0;
