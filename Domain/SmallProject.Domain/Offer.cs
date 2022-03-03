@@ -46,7 +46,12 @@ namespace SmallProject.Domain
         /// <summary>
         /// Object of the related user
         /// </summary>
-        [ForeignKey("User")]
+        [ForeignKey("UserId")]
         public User User { get; set; }
+
+        /// <summary>
+        /// Price after the calculation was made
+        /// </summary>
+        public int TotalPrice { get; set; }
     }
 }

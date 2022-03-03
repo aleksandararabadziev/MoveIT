@@ -19,5 +19,10 @@ namespace SmallProject.Data.Implementations
         {
             ContextTransaction.Complete();
         }
+
+        public void Dispose()
+        {
+            ContextTransaction.Dispose();
+        }
     }
 }

@@ -14,20 +14,13 @@ export class AppComponent implements OnInit {
   title: string = "MoveIT";
   appSettings: AppSettingsModel = null;
 
-  constructor(private _appService: AppService, 
-              @Inject(SESSION_STORAGE) private _storage: StorageService) {
+  constructor(private _appService: AppService,
+    @Inject(SESSION_STORAGE) private _storage: StorageService) {
 
   }
 
   ngOnInit(): void {
     this.getAppSettings();
-    this.ping();
-  }
-
-  ping(){
-    this._appService.getPing().subscribe(result=>{
-      console.log(result);
-    })
   }
 
   getAppSettings() {

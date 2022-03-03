@@ -1,4 +1,7 @@
-﻿using SmallProject.Data.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SmallProject.AutoMapper;
+using SmallProject.Data.Implementations;
+using SmallProject.Data.Interfaces;
 using SmallProject.Domain;
 using SmallProject.Models;
 using SmallProject.Services.Interfaces;
@@ -15,20 +18,77 @@ namespace SmallProject.Services
 
         private readonly IRepository<DistancePrice> _distancePriceRepository;
         private readonly IRepository<VolumePrice> _volumePriceRepository;
+        private readonly IRepository<Offer> _offerRepository;
+        private readonly IRepository<User> _userRepository;
 
         #endregion
 
         #region Ctor
 
-        public OfferService(IRepository<DistancePrice> distancePriceRepository, IRepository<VolumePrice> volumePriceRepository)
+        public OfferService(IRepository<DistancePrice> distancePriceRepository,
+                            IRepository<VolumePrice> volumePriceRepository,
+                            IRepository<Offer> offerRepository,
+                            IRepository<User> userRepository)
         {
             _distancePriceRepository = distancePriceRepository;
             _volumePriceRepository = volumePriceRepository;
+            _offerRepository = offerRepository;
+            _userRepository = userRepository;
         }
 
         #endregion
 
-        public int CreateOffer(OfferModel model)
+        public List<OfferModel> GetOffersByUser(string username)
+        {
+            var user = _userRepository.Query().FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
+
+            if (user == null)
+                throw new Exception("The user does not exist!");
+
+            var offers = _offerRepository.Query().Where(x => x.UserId == user.Id).ToList();
+
+            return offers.Select(x => x.ToModel<OfferModel, Offer>()).ToList();
+        }
+
+        public void CreateOffer(CreateOfferModel model, string username)
+        {
+            var user = _userRepository.Query().FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
+
+            if (user == null)
+                throw new Exception("The user does not exist!");
+
+            var totalPrice = CalculatePrice(model);
+
+            using (var unitOfWork = new UnitOfWork())
+            {
+                var domain = new Offer()
+                {
+                    Id = Guid.NewGuid(),
+                    Distance = model.Distance,
+                    LivingArea = model.LivingArea,
+                    AtticArea = model.AtticArea,
+                    PianoIncluded = model.PianoIncluded,
+                    UserId = user.Id,
+                    TotalPrice = totalPrice
+                };
+
+                _offerRepository.Create(domain);
+
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public DetailsOfferModel GetOfferById(Guid offerId)
+        {
+            var offer = _offerRepository.GetById(offerId);
+
+            if (offer == null)
+                throw new Exception("The offer does not exist!");
+
+            return offer.ToModel<DetailsOfferModel, Offer>();
+        }
+
+        private int CalculatePrice(CreateOfferModel model)
         {
             var totalPrice = 0;
 

@@ -1,0 +1,22 @@
+<h3>Offers</h3>
+
+<button (click)="openGetOfferModal()">Get an offer</button>
+
+<table *ngIf="offers != null && offers != undefined">
+    <tr>
+        <th>Distance</th>
+        <th>Living area</th>
+        <th>Attic area</th>
+        <th>Piano included</th>
+        <th>Total price</th>
+        <th>Details</th>
+    </tr>
+    <tr *ngFor="let offer of offers">
+        <td>{{ offer.distance }}</td>
+        <td>{{ offer.livingArea }}</td>
+        <td>{{ offer.atticArea }}</td>
+        <td>{{ offer.pianoIncluded }}</td>
+        <td>{{ offer.totalPrice }}</td>
+        <td> <a (click)="openOfferDetails(offer.id)">click here</a> </td>
+    </tr>
+</table>

@@ -2,7 +2,7 @@
 
 namespace SmallProject.Data.Interfaces
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         void SaveChanges();
     }
