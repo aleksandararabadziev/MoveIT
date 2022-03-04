@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SmallProject.AutoMapper;
+﻿using SmallProject.AutoMapper;
 using SmallProject.Data.Implementations;
 using SmallProject.Data.Interfaces;
 using SmallProject.Domain;
@@ -8,7 +7,6 @@ using SmallProject.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SmallProject.Services
 {
@@ -59,19 +57,13 @@ namespace SmallProject.Services
 
             var totalPrice = CalculatePrice(model);
 
+            var domain = model.ToDomain<Offer, CreateOfferModel>();
+            domain.Id = Guid.NewGuid();
+            domain.UserId = user.Id;
+            domain.TotalPrice = totalPrice;
+
             using (var unitOfWork = new UnitOfWork())
             {
-                var domain = new Offer()
-                {
-                    Id = Guid.NewGuid(),
-                    Distance = model.Distance,
-                    LivingArea = model.LivingArea,
-                    AtticArea = model.AtticArea,
-                    PianoIncluded = model.PianoIncluded,
-                    UserId = user.Id,
-                    TotalPrice = totalPrice
-                };
-
                 _offerRepository.Create(domain);
 
                 unitOfWork.SaveChanges();

@@ -15,6 +15,7 @@ namespace SmallProject.AutoMapper
             CreateMap<VolumePrice, VolumePriceModel>().ReverseMap();
             CreateMap<Offer, OfferModel>().ReverseMap();
             CreateMap<Offer, DetailsOfferModel>().ForMember(x => x.UserFullName, o => o.MapFrom(x => x.User.FirstName + " " + x.User.LastName));
+            CreateMap<CreateOfferModel, Offer>().ReverseMap();
         }
     }
 }

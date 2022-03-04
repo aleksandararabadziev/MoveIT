@@ -5,11 +5,11 @@ namespace SmallProject.Settings
 {
     public class AppSettings
     {
-        public bool TestAppSetting { get; set; }
-
         public string DbConnectionString { get; set; }
 
         public string WebApiUrl { get; set; }
+
+        public string WebUrl { get; set; }
     }
 
     public class AppSettingsLocator

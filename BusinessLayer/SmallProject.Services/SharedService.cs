@@ -1,14 +1,8 @@
-﻿using Microsoft.Extensions.Options;
-using SmallProject.AutoMapper;
+﻿using SmallProject.AutoMapper;
 using SmallProject.Data.Interfaces;
 using SmallProject.Domain;
-using SmallProject.Models;
 using SmallProject.Services.Interfaces;
 using SmallProject.Settings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SmallProject.Services
 {

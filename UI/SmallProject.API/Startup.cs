@@ -22,8 +22,6 @@ namespace SmallProject.API
             _configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<AppSettings>(_configuration.GetSection("Settings"));
@@ -40,7 +38,7 @@ namespace SmallProject.API
             services.AddCors(options => options.AddPolicy("CorsPolicy",
                 builder =>
                 {
-                    builder.WithOrigins("https://smallproject.dev")
+                    builder.WithOrigins(settings.WebUrl)
                             .AllowAnyMethod()
                             .AllowAnyHeader()
                             .AllowCredentials();
