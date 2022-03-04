@@ -6,12 +6,13 @@ import { Observable } from "rxjs";
 import { catchError, tap } from 'rxjs/operators';
 
 import * as $ from 'jquery';
+import { Utils } from "./utils.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class Repository {
-    constructor(private _http: HttpClient, @Inject(SESSION_STORAGE) private _storage: StorageService) { }
+    constructor(private _http: HttpClient, @Inject(SESSION_STORAGE) private _storage: StorageService, private _utils: Utils) { }
 
     getHeader() {
         var headers = new HttpHeaders({
@@ -38,7 +39,7 @@ export class Repository {
                 return data;
             }),
             catchError(err => {
-                return err;
+                return this._utils.handleError(err.error);
             })
         );
     }
@@ -54,7 +55,7 @@ export class Repository {
                 return data;
             }),
             catchError(err => {
-                return err;
+                return this._utils.handleError(err.error);
             })
         );
     }

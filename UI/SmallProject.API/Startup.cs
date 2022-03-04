@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SmallProject.AutoMapper;
 using SmallProject.Data;
+using SmallProject.Logging;
 using SmallProject.Settings;
 using System;
 using System.Collections.Generic;
@@ -69,7 +70,7 @@ namespace SmallProject.API
 
             app.UseStatusCodePagesWithReExecute("/");
 
-            //app.UseMiddleware(typeof(ErrorHandlingMiddleware));
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
             //app.UseAuthentication();
             app.UseAuthorization();

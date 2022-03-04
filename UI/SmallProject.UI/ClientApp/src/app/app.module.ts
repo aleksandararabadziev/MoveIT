@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { OffersModule } from './offers/offers.module';
 import { CommonModule } from '@angular/common';
+import { ErrorDialogComponent } from './shared/dialogs/error-dialog.component';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: 'offers', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const ROUTES: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    GetOfferComponent
+    GetOfferComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,

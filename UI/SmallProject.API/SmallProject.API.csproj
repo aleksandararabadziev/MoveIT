@@ -8,6 +8,7 @@
     <ProjectReference Include="..\..\BusinessLayer\SmallProject.Services.Interfaces\SmallProject.Services.Interfaces.csproj" />
     <ProjectReference Include="..\..\Configuration\SmallProject.Authorization\SmallProject.Authorization.csproj" />
     <ProjectReference Include="..\..\Configuration\SmallProject.DependenciesRegistration\SmallProject.DependenciesRegistration.csproj" />
+    <ProjectReference Include="..\..\Configuration\SmallProject.Logging\SmallProject.Logging.csproj" />
     <ProjectReference Include="..\SmallProject.UI\SmallProject.UI.csproj" />
   </ItemGroup>
 
