@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="powershell.exe -ExecutionPolicy RemoteSigned -File &quot;$(ProjectDir)\Scripts\copy_settings_to_appsettings.ps1&quot;" />
+    <Exec Command="powershell.exe -ExecutionPolicy RemoteSigned -File &quot;$(SolutionDir)Configuration\SmallProject.Settings\Scripts\copy_settings_to_appsettings.ps1&quot;" />
   </Target>
 
 </Project>

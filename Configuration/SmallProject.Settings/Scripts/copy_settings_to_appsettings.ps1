@@ -1,7 +1,8 @@
 Param(
-  [string]$uiConfigPath="..\UI\SmallProject.UI\appsettings.json",
-  [string]$apiConfigPath="..\UI\SmallProject.API\appsettings.json",
+  [string]$uiConfigPath="..\..\..\UI\SmallProject.UI\appsettings.json",
+  [string]$apiConfigPath="..\..\..\UI\SmallProject.API\appsettings.json"
 )
+
 
 $appConfigPath = "..\appsettings.json";
 
