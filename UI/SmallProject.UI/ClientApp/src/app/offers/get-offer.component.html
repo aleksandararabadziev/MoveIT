@@ -1,23 +1,24 @@
-<h1 mat-dialog-title>Get an offer</h1>
-<div mat-dialog-content>
-  <div>
-    <label>Distance</label>
-    <input type="number" [(ngModel)]="model.Distance"/>
+<h3 class="">Get an offer</h3>
+
+<form>
+  <div clsas="form-group">
+    <label for="distance">Distance</label>
+    <input id="distance" type="number" [(ngModel)]="model.Distance" min="1" class="form-control" />
   </div>
-  <div>
-    <label>Living area</label>
-    <input type="number" [(ngModel)]="model.LivingArea"/>
+  <div clsas="form-group">
+    <label for="livingarea">Living area</label>
+    <input id="livingarea" type="number" [(ngModel)]="model.LivingArea" class="form-control" />
   </div>
-  <div>
-    <label>Attic area</label>
-    <input type="number" [(ngModel)]="model.AtticArea"/>
+  <div clsas="form-group">
+    <label for="atticarea">Attic area</label>
+    <input id="atticarea" type="number" [(ngModel)]="model.AtticArea" class="form-control" />
   </div>
-  <div>
-    <label>Piano included</label>
-    <input type="checkbox" [(ngModel)]="model.PianoIncluded"/>
+  <div clsas="form-check">
+    <input id="piano" type="checkbox" [(ngModel)]="model.PianoIncluded" class="form-check-input" />
+    <label for="piano" class="form-check-label">Piano included</label>
   </div>
-</div>
-<div mat-dialog-actions>
-  <button (click)="submitProposal()">Submit</button>
-  <button (click)="cancel()">Cancel</button>
-</div>
+  <div class="col text-center">
+    <button (click)="submitProposal()" class="btn btn-success">Submit</button>
+    <button (click)="cancel()" class="btn btn-danger">Cancel</button>
+  </div>
+</form>

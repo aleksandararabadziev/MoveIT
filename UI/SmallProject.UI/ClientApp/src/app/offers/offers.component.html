@@ -1,22 +1,36 @@
-<h3>Offers</h3>
+<br/>
+<br/>
+<br/>
 
-<button (click)="openGetOfferModal()">Get an offer</button>
-
-<table *ngIf="offers != null && offers != undefined">
-    <tr>
-        <th>Distance</th>
-        <th>Living area</th>
-        <th>Attic area</th>
-        <th>Piano included</th>
-        <th>Total price</th>
-        <th>Details</th>
-    </tr>
-    <tr *ngFor="let offer of offers">
-        <td>{{ offer.distance }}</td>
-        <td>{{ offer.livingArea }}</td>
-        <td>{{ offer.atticArea }}</td>
-        <td>{{ offer.pianoIncluded }}</td>
-        <td>{{ offer.totalPrice }}</td>
-        <td> <a (click)="openOfferDetails(offer.id)">click here</a> </td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-md-7"><h3>Offers</h3></div>
+    <div class="col-md-1 text-right">
+        <button class="pull-right" (click)="openGetOfferModal()" class="btn btn btn-info">
+            Get an offer
+        </button>
+    </div>
+</div>
+<div class="col-md-8">
+    <table *ngIf="offers != null && offers != undefined" class="table table-bordered">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">Distance</th>
+                <th scope="col">Living area</th>
+                <th scope="col">Attic area</th>
+                <th scope="col">Piano included</th>
+                <th scope="col">Total price</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let offer of offers" scope="row">
+                <td>{{ offer.distance }}</td>
+                <td>{{ offer.livingArea }}</td>
+                <td>{{ offer.atticArea }}</td>
+                <td>{{ offer.pianoIncluded }}</td>
+                <td>{{ offer.totalPrice }} SEK</td>
+                <td> <a class="link-info" (click)="openOfferDetails(offer.id)">click here</a> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
