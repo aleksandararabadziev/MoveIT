@@ -79,7 +79,7 @@ namespace SmallProject.API
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=OpenApi}/{action=VerifyConnection}");
+                    pattern: "{controller=Test}/{action=VerifyConnection}");
             });
         }
 

@@ -22,12 +22,6 @@ namespace SmallProject.Domain
         public string Username { get; set; }
 
         /// <summary>
-        /// Pass prahse used to authenticate
-        /// </summary>
-        [Required]
-        public string Password { get; set; }
-
-        /// <summary>
         /// User's first name
         /// </summary>
         [Required]
