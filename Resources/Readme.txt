@@ -5,5 +5,7 @@ Steps for setting up:
 3. Create new database
 4. Find the file database_query.sql in Resources folder and execute it in your new database
 5. Change the connection string in all 3 appsettings.json files which are located in SmallProject.Settings, SmallProject.API, SmallProject.UI
+   - You can change the connection string in SmallProject.Settings project and then run the copy_settings_to_appsettings.ps1 script and it will copy the settings to UI and API projects
+6. Start the project with the URL https://smallproject.dev/
 
 Note: The user is hard-coded in repository.service.ts!
